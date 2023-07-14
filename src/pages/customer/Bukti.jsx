@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { baseUrl } from '../config';
+import { baseUrl } from '../../config';
 
 const Bukti = () => {
   const { id } = useParams();
@@ -9,15 +9,6 @@ const Bukti = () => {
   const [listPesanan, setListPesanan] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false); // Menambahkan state untuk mengontrol rendering
   // console.log(totalHarga)
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    getData();
-    // handlerCalculate();
-  };
-
   const handlerCalculate = () => {
     let total = 0;
     listPesanan.forEach((item) => {
@@ -39,6 +30,20 @@ const Bukti = () => {
     }
   };
 
+  const fetchData = async () => {
+    getData();
+    // handlerCalculate();
+  };
+
+  useEffect(() => {
+    const interval = setInterval(fetchData, 3000); // Refresh setiap 2 menit (120000 milidetik)
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+
+
   // Menampilkan loading atau placeholder saat data sedang dimuat
   if (!isDataLoaded) {
     return <div>Loading...</div>;
@@ -59,24 +64,21 @@ const Bukti = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-6">
-              <h4>Jenis Bayar : {pembeli.jenisPembayaran}</h4>
-            </div>
-            <div className="col-6">
+            <div className="col-12">
               <>
                 <h4>
                   Status :{' '}
                   {pembeli.isDone === 0 ? (
                     <button className="text-danger border border-2 border-danger rounded bg-light">
-                      Konfirmasi
+                      Menunggu Konfirmasi
                     </button>
                   ) : pembeli.isDone === 1 ? (
                     <button className="text-warning border border-2 border-warning rounded bg-light">
-                      Proses
+                      Pesanan Di Proses
                     </button>
                   ) : pembeli.isDone === 2 ? (
                     <button className="text-success border border-2 border-success rounded bg-light">
-                      Selesai
+                      Pesanan Selesai
                     </button>
                   ) : null}
                 </h4>

@@ -1,19 +1,24 @@
 import React from "react"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Order from "./pages/Order";
-import Checkout from "./pages/Checkout";
-import Bukti from "./pages/Bukti";
-import ListOrder from "./pages/ListOrder";
+import Order from "./pages/customer/Order";
+import Checkout from "./pages/customer/Checkout";
+import Bukti from "./pages/customer/Bukti";
+import ListOrder from "./pages/admin/ListOrder";
+import VerifikasiPembayaran from "./pages/admin/VerifikasiPembayaran";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* customer */}
         <Route path="/order/:id" element={<Order/>}></Route>
         <Route path="/checkout/:id" element={<Checkout/>}></Route>
         <Route path="/bukti/:id" element={<Bukti/>}></Route>
+
+        {/* admin */}
         <Route path="/listorder/" element={<ListOrder/>}></Route>
+        <Route path="/verifikasipembayaran/:id" element={<VerifikasiPembayaran/>}></Route>
       </Routes>
     </BrowserRouter>
   );

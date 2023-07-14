@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content'
-import { baseUrl } from '../config';
+import { baseUrl } from '../../config';
 
 const Checkout = () => {
     const { id } = useParams();
@@ -17,8 +16,6 @@ const Checkout = () => {
 
     const [namaPembeli, setNamaPembeli] = useState('');
     const [catatanPembeli, setCatatanPembeli] = useState('');
-    const [jenisPembayaran, setJenisPembayaran] = useState('bayar_langsung');
-    console.log(totalHarga);
 
     useEffect(() => {
         getData();
@@ -66,7 +63,6 @@ const Checkout = () => {
             const response = await axios.post(`${baseUrl}/ajukanPesanan/`, {
                 namaPembeli: namaPembeli,
                 catatanPembeli: catatanPembeli,
-                jenisPembayaran: jenisPembayaran,
                 mejaId: datas.id,
                 totalBayar: totalHarga.toString(),
                 pesanan: cart,
@@ -127,15 +123,6 @@ const Checkout = () => {
                     <div className="mb-3">
                         <label className="form-label"><h2>Catatan Untuk Makanan</h2></label>
                         <input type="text" className="form-control" placeholder='Masukkan Catatan' value={catatanPembeli} onChange={(e) => setCatatanPembeli(e.target.value)} />
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label"><h2>Jenis Pembayaran</h2></label>
-                        <select className='form-control' defaultValue={jenisPembayaran} onChange={(e) => setJenisPembayaran(e.target.value)} required>
-                            <option value="#" disabled selected>--Pilih Jenis Pembayaran--</option>
-                            <option value="bayar_langsung">Bayar Langsung</option>
-                            <option value="qris">Qris</option>
-                        </select>
-                        <div className="form-text" style={{ color: 'red' }}>*Jenis Pembayaran Wajib Dipilih</div>
                     </div>
                     <button type='submit' className='btn btn-success form-control fixed-bottom py-1'>Ajukan Pesanan</button>
                 </form>
