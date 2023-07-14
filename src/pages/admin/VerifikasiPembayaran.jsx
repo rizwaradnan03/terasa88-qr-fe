@@ -77,7 +77,7 @@ const VerifikasiPembayaran = () => {
                                 {/* <label className="form-label"><h2></h2></label> */}
                                 <select className='form-control' value={jenisPembayaran} onChange={(e) => setJenisPembayaran(e.target.value)}>
                                     <option value="Cash">Cash</option>
-                                    <option value="Bank">Qris</option>
+                                    <option value="GoPay QRIS">Qris</option>
                                 </select>
                             </div>
                             <button type='submit' className='btn btn-success form-control'>Selesai</button>
