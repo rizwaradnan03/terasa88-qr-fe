@@ -77,6 +77,10 @@ const Bukti = () => {
                       Pesanan Di Proses
                     </button>
                   ) : pembeli.isDone === 2 ? (
+                    <button className="text-primary border border-2 border-primary rounded bg-light">
+                      Pesanan Sudah Sampai
+                    </button>
+                  ) : pembeli.isDone === 3 ? (
                     <button className="text-success border border-2 border-success rounded bg-light">
                       Pesanan Selesai
                     </button>

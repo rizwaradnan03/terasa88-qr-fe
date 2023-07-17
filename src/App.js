@@ -6,9 +6,12 @@ import Bukti from "./pages/customer/Bukti";
 import ListOrder from "./pages/admin/ListOrder";
 import VerifikasiPembayaran from "./pages/admin/VerifikasiPembayaran";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
+    <>
+    <Navbar />
     <BrowserRouter>
       <Routes>
         {/* customer */}
@@ -21,6 +24,7 @@ function App() {
         <Route path="/verifikasipembayaran/:id" element={<VerifikasiPembayaran/>}></Route>
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 
