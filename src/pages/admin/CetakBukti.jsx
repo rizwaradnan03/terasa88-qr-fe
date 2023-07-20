@@ -27,8 +27,8 @@ const CetakBukti = () => {
   }, [])
 
   return (
-    <div className="container text-center" style={{ fontFamily: 'Arial, sans-serif' }}>
-      <h4>Jalan Pondok Sukmajaya Permai No. <br /> 10A Depok - Jawa Barat</h4>
+    <div className="container text-center" style={{ fontFamily: 'serif' }}>
+      <h4 style={{fontSize: '14px'}}>Jalan Pondok Sukmajaya Permai No. <br /> 10A Depok - Jawa Barat</h4>
       <table className='table mt-3'>
         <thead>
           <tr>
@@ -49,7 +49,7 @@ const CetakBukti = () => {
           ))}
         </tbody>
       </table>
-      <h5 className='text-end mr-2 mb-5'>Total {new Intl.NumberFormat('en-US').format(item.totalBayar)}</h5>
+      <h5 className='text-end mr-2 mb-5' style={{fontSize: '16px'}}>Total {new Intl.NumberFormat('en-US').format(item.totalBayar)}</h5>
       <h6>Terima Kasih Atas Kunjungan Anda</h6>
       <h6 style={{fontSize: '14px'}}>Pesan & Antar : 0858 8888 3302</h6>
     </div>
