@@ -7,7 +7,7 @@ const VerifikasiPembayaran = () => {
     const { id } = useParams()
     const [customer, setCustomer] = useState([])
     const [listCustomer, setListCustomer] = useState([])
-    
+
     const navigate = useNavigate()
 
     const [jenisPembayaran, setJenisPembayaran] = useState('Cash')
@@ -29,10 +29,10 @@ const VerifikasiPembayaran = () => {
     const handlerconfirmSelesai = async (e) => {
         e.preventDefault()
         try {
-            await axios.patch(`${baseUrl}/confirmSelesai/${id}`,{
+            await axios.patch(`${baseUrl}/confirmSelesai/${id}`, {
                 jenisPembayaran: jenisPembayaran
             })
-            navigate('/listorder')
+            navigate(`/cetakbukti/${id}`)
         } catch (error) {
             console.log(error)
         }
