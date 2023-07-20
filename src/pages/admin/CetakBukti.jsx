@@ -38,7 +38,7 @@ const CetakBukti = () => {
             <th>Jlh</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{fontSize: '14px'}}>
           {bukti.map((item, index) => (
             <tr key={index + 1}>
               <td>{item.nama}</td>
@@ -51,7 +51,7 @@ const CetakBukti = () => {
       </table>
       <h5 className='text-end mr-2 mb-5' style={{fontSize: '16px'}}>Total {new Intl.NumberFormat('en-US').format(item.totalBayar)}</h5>
       <h6>Terima Kasih Atas Kunjungan Anda</h6>
-      <h6 style={{fontSize: '14px'}}>Pesan & Antar : 0858 8888 3302</h6>
+      <h6 style={{fontSize: '14px'}}>Pesan & Antar (WhatsApp) : 0858 8888 3302</h6>
     </div>
   )
 }
