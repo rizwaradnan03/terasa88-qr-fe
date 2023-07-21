@@ -6,6 +6,7 @@ import Bukti from "./pages/customer/Bukti";
 import ListOrder from "./pages/admin/ListOrder";
 import VerifikasiPembayaran from "./pages/admin/VerifikasiPembayaran";
 import CetakBukti from "./pages/admin/CetakBukti";
+import Detail from "./pages/admin/Detail";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/listorder/" element={<ListOrder/>}></Route>
         <Route path="/verifikasipembayaran/:id" element={<VerifikasiPembayaran/>}></Route>
         <Route path="/cetakbukti/:id" element={<CetakBukti/>}></Route>
+        <Route path="/detail/:id" element={<Detail/>}></Route>
       </Routes>
     </BrowserRouter>
     </>

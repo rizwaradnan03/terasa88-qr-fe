@@ -6,7 +6,7 @@ import { baseUrl } from '../../config'
 const VerifikasiPembayaran = () => {
     const { id } = useParams()
     const [customer, setCustomer] = useState([])
-    const [listCustomer, setListCustomer] = useState([])
+    const [listItem, setListItem] = useState([])
 
     const navigate = useNavigate()
 
@@ -20,7 +20,7 @@ const VerifikasiPembayaran = () => {
         try {
             const response = await axios.get(`${baseUrl}/customerVerifikasiPembayaran/${id}`)
             setCustomer(response.data.data.pembeli)
-            setListCustomer(response.data.data.listItem)
+            setListItem(response.data.data.listItem)
         } catch (error) {
             console.log(error)
         }
@@ -52,7 +52,7 @@ const VerifikasiPembayaran = () => {
                     <hr />
                     <div className="row">
                         <h2 className='mb-3 text-center'>Pesanan</h2>
-                        {listCustomer.map((item, index) => (
+                        {listItem.map((item, index) => (
                             <div className="row" key={index}>
                                 <div className="col-6">
                                     <h3>{item.nama}</h3>

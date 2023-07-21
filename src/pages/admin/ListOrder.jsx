@@ -69,6 +69,7 @@ const ListOrder = () => {
                         {new Intl.NumberFormat("en-US").format(item.totalBayar)}
                       </td>
                       <td>
+                        <Link to={`/detail/${item.id}`} className="btn btn-warning">Detail</Link>
                         <button
                           className="btn btn-success"
                           onClick={() => handlerUpdateKonfirmasi(item.id)}
@@ -104,6 +105,7 @@ const ListOrder = () => {
                         {new Intl.NumberFormat("en-US").format(item.totalBayar)}
                       </td>
                       <td>
+                        <Link to={`/detail/${item.id}`} className="btn btn-warning">Detail</Link>
                       <button
                           className="btn btn-success"
                           onClick={() => handlerUpdatePengiriman(item.id)}
