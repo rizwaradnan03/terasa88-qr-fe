@@ -8,7 +8,7 @@ const Bukti = () => {
   const [pembeli, setPembeli] = useState([]);
   const [listPesanan, setListPesanan] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false); // Menambahkan state untuk mengontrol rendering
-  // console.log(totalHarga)
+
   const handlerCalculate = () => {
     let total = 0;
     listPesanan.forEach((item) => {
@@ -32,7 +32,6 @@ const Bukti = () => {
 
   const fetchData = async () => {
     getData();
-    // handlerCalculate();
   };
 
   useEffect(() => {

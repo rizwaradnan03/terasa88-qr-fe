@@ -17,7 +17,20 @@ const Order = () => {
 
   const navigate = useNavigate();
 
+  const cekMeja = async () => {
+    try {
+      const cekMeja = await axios.get(`${baseUrl}/getMeja/${id}`)
+
+      if (cekMeja.data.data.length === [] || cekMeja.data.data.length === 0) {
+        navigate(`/notfound`)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
+    cekMeja()
     getData();
     window.addEventListener("scroll", handleScroll);
     return () => {
