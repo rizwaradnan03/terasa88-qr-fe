@@ -27,8 +27,8 @@ const CetakBukti = () => {
   }, [])
 
   return (
-    <div className="container text-center" style={{ fontFamily: 'serif' }}>
-      <h4 style={{fontSize: '14px'}}>Jalan Pondok Sukmajaya Permai No 10A <br /> Depok - Jawa Barat</h4>
+    <div className="container text-center" style={{ fontFamily: 'Courier, monospace' }}>
+      <h4 style={{ fontSize: '12px' }}>Jalan Pondok Sukmajaya Permai No 10A <br /> Depok - Jawa Barat</h4>
       <table className='table mt-3'>
         <thead>
           <tr>
@@ -38,7 +38,7 @@ const CetakBukti = () => {
             <th>Jlh</th>
           </tr>
         </thead>
-        <tbody style={{fontSize: '12px'}}>
+        <tbody style={{ fontSize: '12px' }}>
           {bukti.map((item, index) => (
             <tr key={index + 1} className=''>
               <td>{item.nama}</td>
@@ -49,10 +49,10 @@ const CetakBukti = () => {
           ))}
         </tbody>
       </table>
-      <h5 className='text-end mr-2 mb-5' style={{fontSize: '16px'}}>Total    {new Intl.NumberFormat('en-US').format(item.totalBayar)}</h5>
-      <h6 style={{fontSize: '10px'}}>Terima Kasih Atas Kunjungan Anda</h6>
-      <h6 style={{fontSize: '12px'}}>Pesan & Antar (WhatsApp)</h6>
-      <h6 style={{fontSize: '12px'}}>0858 8888 3302</h6>
+      <h5 className='text-end mr-2 mb-5' style={{ fontSize: '16px' }}>Total    {new Intl.NumberFormat('en-US').format(item.totalBayar)}</h5>
+      <h6 style={{ fontSize: '10px' }}>Terima Kasih Atas Kunjungan Anda</h6>
+      <h6 style={{ fontSize: '12px' }}>Pesan & Antar (WhatsApp)</h6>
+      <h6 style={{ fontSize: '12px' }}>0858 8888 3302</h6>
     </div>
   )
 }
